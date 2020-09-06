@@ -581,10 +581,7 @@ class index extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     // return { blogs : res.data }
     const config = {
       method: 'get',
-      url: 'https://api.jsonbin.io/b/5f54f2f0514ec5112d176d32/2',
-      headers: {
-        'secret-key': '$2b$10$njvhzvxLUVSAWRLf.UlqD.ppRpTZOGgFWgnGIkfUYHRXQVRf/L3TO'
-      }
+      url: 'https://api.npoint.io/11da13742f9ec752e3be/blogs/'
     };
     let res = await axios__WEBPACK_IMPORTED_MODULE_2___default()(config);
     console.log(res.data);

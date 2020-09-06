@@ -7,17 +7,15 @@ export default class detail extends Component {
     static async getInitialProps({ query }) {
         // const res = await axios.get('http://localhost:3001/blogs/' + query.id )
         // return { blog : res.data }
-console.log("id = "+ query.id)
         const config = {
             method: 'get',
-            url: 'https://api.jsonbin.io/b/5f54f2f0514ec5112d176d32/2/' + query.id ,
-            headers: { 'secret-key': '$2b$10$njvhzvxLUVSAWRLf.UlqD.ppRpTZOGgFWgnGIkfUYHRXQVRf/L3TO' }
+            url: 'https://api.npoint.io/11da13742f9ec752e3be/blogs/' + query.id 
         }
     
         let res = await axios(config)
-    
+        console.log( "res.data" );
         console.log( res.data );
-        return { blogs : res.data }
+        return { blog : res.data }
     }
 
     render() {

@@ -553,9 +553,20 @@ class detail extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
   static async getInitialProps({
     query
   }) {
-    const res = await axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://localhost:3001/blogs/' + query.id);
+    // const res = await axios.get('http://localhost:3001/blogs/' + query.id )
+    // return { blog : res.data }
+    console.log("id = " + query.id);
+    const config = {
+      method: 'get',
+      url: 'https://api.jsonbin.io/b/5f54f2f0514ec5112d176d32/2/' + query.id,
+      headers: {
+        'secret-key': '$2b$10$njvhzvxLUVSAWRLf.UlqD.ppRpTZOGgFWgnGIkfUYHRXQVRf/L3TO'
+      }
+    };
+    let res = await axios__WEBPACK_IMPORTED_MODULE_2___default()(config);
+    console.log(res.data);
     return {
-      blog: res.data
+      blogs: res.data
     };
   }
 

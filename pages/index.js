@@ -6,7 +6,17 @@ import Link from 'next/link'
 export default class index extends Component {
 
     static async getInitialProps() {
-        const res = await axios.get('http://localhost:3001/blogs')
+        // const res = await axios.get('http://localhost:3001/blogs')
+        // return { blogs : res.data }
+        const config = {
+            method: 'get',
+            url: 'https://api.jsonbin.io/b/5f54f2f0514ec5112d176d32/2',
+            headers: { 'secret-key': '$2b$10$njvhzvxLUVSAWRLf.UlqD.ppRpTZOGgFWgnGIkfUYHRXQVRf/L3TO' }
+        }
+    
+        let res = await axios(config)
+    
+        console.log( res.data );
         return { blogs : res.data }
     }
 
